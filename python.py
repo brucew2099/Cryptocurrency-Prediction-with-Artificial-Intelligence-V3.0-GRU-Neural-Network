@@ -20,24 +20,24 @@ with open('model.txt', 'w') as layers:
     "color=none,fillcolor=gray,shape=circle]\n")
 
   # Clusters
-  for i in range(0, len(layers)):
-      print(("\tsubgraph cluster_{} {{".format(i)))
-      print(("\t\tcolor={};".format(layers_col[i])))
-      print(("\t\tnode [style=filled, color=white, penwidth={},"
-          "fillcolor={} shape=circle];".format(
-              penwidth,
-              layers_fill[i])))
+  for i in range(len(layers)):
+    print(("\tsubgraph cluster_{} {{".format(i)))
+    print(("\t\tcolor={};".format(layers_col[i])))
+    print(("\t\tnode [style=filled, color=white, penwidth={},"
+        "fillcolor={} shape=circle];".format(
+            penwidth,
+            layers_fill[i])))
 
-      print(("\t\t"), end=' ')
+    print(("\t\t"), end=' ')
 
-      for a in range(layers[i]):
-          print("l{}{} ".format(i + 1, a), end=' ')
+    for a in range(layers[i]):
+      print(f"l{i + 1}{a} ", end=' ')
 
-      print(";")
-      print(("\t\tlabel = {};".format(layers_str[i])))
+    print(";")
+    print(("\t\tlabel = {};".format(layers_str[i])))
 
-      print("\t}\n")
-      # Nodes
+    print("\t}\n")
+        # Nodes
   for i in range(1, len(layers)):
       for a in range(layers[i - 1]):
           for b in range(layers[i]):
